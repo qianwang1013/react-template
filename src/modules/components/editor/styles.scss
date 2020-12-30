@@ -1,0 +1,27 @@
+@import "../../../color.scss";
+
+.rich-editor {
+  min-height: 6em;
+
+  &__short-cuts {
+    border-bottom: 1px solid $light-grey;
+    font-weight: 600;
+
+    &__item {
+      cursor: pointer;
+      color: $light-green;
+      margin: 5px 5px;
+      &__active {
+        color: $light-green;
+      }
+    }
+  }
+
+  .DraftEditor-root {
+    min-height: 6em;
+
+    .public-DraftEditorPlaceholder-inner {
+      color: $grey;
+    }
+  }
+}

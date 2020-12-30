@@ -1,0 +1,10 @@
+@import "../../../color.scss";
+
+.card {
+  min-height: 500px;
+  min-width: 100px;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px $grey;
+}
