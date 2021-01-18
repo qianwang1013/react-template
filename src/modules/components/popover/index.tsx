@@ -9,7 +9,7 @@ const Popover: React.FC<PopoverProps> = ({ children, renderFn }) => {
   return (
     <div className="popover__wrapper">
       {children}
-      <div className="popover__content">123123{renderFn()}</div>
+      <div className="popover__content">{renderFn()}</div>
     </div>
   );
 };

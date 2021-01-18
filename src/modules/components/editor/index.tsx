@@ -1,20 +1,26 @@
-import React, { useState } from "react";
 import {
   DraftHandleValue,
   Editor,
   EditorState,
   getDefaultKeyBinding,
-  KeyBindingUtil,
   RichUtils,
+  convertToRaw,
+  RawDraftContentState,
 } from "draft-js";
-import { makeCommands, Command } from "./commands";
-import "./styles.scss";
+import React, { useState } from "react";
+import { Command, makeCommands } from "./commands";
 import EditorItem from "./EditorItem";
-import { convertCompilerOptionsFromJson } from "typescript";
-import { Console } from "console";
+import Button from "../button";
+import "./styles.scss";
 
-export default function RichEditor() {
+interface RichEditorProps {
+  onSave: (article: RawDraftContentState) => void;
+}
+
+export default function RichEditor(props: RichEditorProps) {
   const [state, setState] = useState<EditorState>(EditorState.createEmpty());
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const { onSave } = props;
   const editor = React.useRef(null);
 
   const _onBoldClick = () => {
@@ -36,6 +42,23 @@ export default function RichEditor() {
   const customCommands = makeCommands([Command.TITLE]);
   return (
     <div className="rich-editor">
+      <div className="rich-editor__btns">
+        {isEdit ? (
+          <>
+            <Button
+              onClick={() => {
+                onSave(convertToRaw(state.getCurrentContent()));
+                setIsEdit(false);
+              }}
+            >
+              Save
+            </Button>
+            <Button onClick={() => setIsEdit(false)}>Cancel</Button>
+          </>
+        ) : (
+          <Button onClick={() => setIsEdit(true)}>Edit</Button>
+        )}
+      </div>
       <div className="rich-editor__short-cuts">
         <EditorItem text="B" onClick={_onBoldClick} />
         <EditorItem text="C" onClick={_onCodeClick} />
@@ -44,17 +67,25 @@ export default function RichEditor() {
       </div>
       <Editor
         ref={editor}
-        customStyleMap={customCommands.reduce(function (command, obj) {
+        readOnly={!isEdit}
+        customStyleMap={customCommands.reduce((command, obj) => {
           Object.assign(command, obj.styles);
           return command;
         }, {})}
         editorState={state}
         onChange={setState}
         keyBindingFn={(event) => {
-          if (event.ctrlKey && event.key === "h") {
-            return "title";
-          }
-          return getDefaultKeyBinding(event);
+          let keyBinding: string | null = getDefaultKeyBinding(event);
+
+          customCommands.some((command) => {
+            const isCommandMatch = command.rule(event as React.KeyboardEvent);
+            if (isCommandMatch) {
+              keyBinding = command.type;
+            }
+            return isCommandMatch;
+          });
+
+          return keyBinding;
         }}
         handleKeyCommand={(command, state) => {
           let res: DraftHandleValue = "not-handled";
@@ -74,7 +105,6 @@ export default function RichEditor() {
             setState(newState);
           }
 
-          console.log(newState, res);
           return res;
         }}
         placeholder="..."

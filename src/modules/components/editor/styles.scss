@@ -2,8 +2,11 @@
 
 .rich-editor {
   min-height: 6em;
+  display: flex;
+  flex-direction: column;
 
   &__short-cuts {
+    display: flex;
     border-bottom: 1px solid $light-grey;
     font-weight: 600;
 
@@ -15,6 +18,11 @@
         color: $light-green;
       }
     }
+  }
+
+  &__btns {
+    display: flex;
+    align-self: flex-end;
   }
 
   .DraftEditor-root {

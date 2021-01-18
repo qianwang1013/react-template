@@ -12,6 +12,12 @@ export class TitleCommand implements CustomCommand {
     },
   };
 
+  type = Command.TITLE;
+  
+  rule = (event: React.KeyboardEvent) => {
+    return event.ctrlKey && event.key === "h";
+  }
+
   handle = (command: Command, state: EditorState) => {
     console.log(command, Command.TITLE);
     if (command === Command.TITLE) {

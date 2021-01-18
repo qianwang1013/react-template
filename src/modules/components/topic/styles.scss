@@ -1,0 +1,20 @@
+@import "../../../color.scss";
+
+.topic-container {
+  display: flex;
+  flex: 1;
+  padding: 50px 15px;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &__timestamp {
+    display: flex;
+    color: $grey;
+  }
+
+  &__content {
+    display: flex;
+    font-size: 2em;
+    font-weight: 600;
+  }
+}

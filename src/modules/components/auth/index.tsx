@@ -9,6 +9,7 @@ import { IDispatchType } from "../../stores/types";
 import { ActionType } from "../../stores/user/actions";
 import { UserState } from "../../stores/user/state";
 import { AppUser, getUser } from "../../types/user";
+import Button from "../button";
 import Popover from "../popover";
 import "./styles.scss";
 
@@ -44,7 +45,7 @@ const login: React.FC<LoginProps<
       {...extraProps}
     />
   ) : (
-    <Popover renderFn={() => <>Pop Over</>}>
+    <Popover renderFn={() => <Button>Log Out</Button>}>
       <img className="profile" src={currentUser.profileUrl} />
     </Popover>
   );
