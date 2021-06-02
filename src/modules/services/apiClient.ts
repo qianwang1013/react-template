@@ -13,8 +13,8 @@ class ApiClient {
     });
   }
 
-  post = (path: string, body: unknown) => {
-    return this._axoisInstance.post(path, body).then((body) => body.data);
+  post = <T>(path: string, body: unknown) => {
+    return this._axoisInstance.post(path, body).then((body) => body.data as T);
   };
 
   get = <T>(path: string) => {

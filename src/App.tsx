@@ -1,12 +1,8 @@
 import React from "react";
-import "./App.css";
-import Card from "./modules/components/card";
-import FacebookLogin from "./modules/components/auth";
-import RichEditor from "./modules/components/editor";
 import { Provider } from "react-redux";
-import { store } from "./modules/stores";
-import { login } from "./modules/stores/user/actions";
+import "./App.css";
 import AppRouter from "./modules/routes";
+import { store } from "./modules/stores";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Sample {}

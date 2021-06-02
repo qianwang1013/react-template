@@ -1,11 +1,11 @@
-import { Topic } from "../../types/topic";
+import { Article } from "../../types/topic";
 
 export interface ArticleState {
-  article?: unknown;
-  topics: Topic[];
+  article?: Article;
+  articles: Article[];
 }
 
 export const initialState: ArticleState = {
   article: undefined,
-  topics: [],
+  articles: [],
 };

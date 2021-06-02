@@ -1,6 +1,8 @@
-export interface Topic {
+export interface Article {
   id: string;
-  name: string;
-  summary: string;
+  data: string;
   createdAt: Date;
+  createdBy: string;
+  updatedAt: Date;
+  updatedBy: string;
 }

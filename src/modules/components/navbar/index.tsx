@@ -9,9 +9,6 @@ export const Navbar = () => {
       <div>
         <Link to="/article">Article</Link>
       </div>
-      <div>
-        <FacebookLogin />
-      </div>
     </nav>
   );
 };

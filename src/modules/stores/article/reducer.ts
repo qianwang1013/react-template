@@ -11,10 +11,15 @@ const reducer = (
         ...state,
         article: action.payload,
       };
-    case ActionType.GET_TOPICS:
+    case ActionType.GET_ONE:
       return {
         ...state,
-        topics: action.payload,
+        article: action.payload,
+      };
+    case ActionType.GET:
+      return {
+        ...state,
+        articles: action.payload,
       };
     default:
       return state;
