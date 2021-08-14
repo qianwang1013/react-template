@@ -10,8 +10,20 @@
 - Eslint
 - Prettier
 
-## VScode Extension to download
+## VScode Settings
+
+# Extensions
 
 - ESLint
 - Prettier - Code formatter
 - DotENV
+
+# Settings
+
+- Ensure vscode apply workspace TypeScript Version
+- Ensure vscode apply workspace settings
+
+## Local Install
+
+- npm ci
+- npm start

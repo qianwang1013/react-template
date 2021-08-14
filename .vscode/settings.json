@@ -11,5 +11,6 @@
     "**/dist": true,
     "**/build": true,
     "dev.log": true
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
