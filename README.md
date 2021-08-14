@@ -26,4 +26,5 @@
 ## Local Install
 
 - npm ci
+- copy .env.sample into your local .env settings
 - npm start
