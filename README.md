@@ -1,12 +1,16 @@
-## Project Plan
+## Sample Project Environment
 
-This application is a React UI and .NET api application. 
+- React 17
+  - https://reactjs.org/blog/2020/10/20/react-v17.html
+  - Checkout for the react-in-jsx-scope change, be sure to disable such rule in the eslint config, hooray
+- React Scripts 4.0.0
+  - https://github.com/facebook/create-react-app/blob/main/CHANGELOG.md
+- TypeScript 4
+- Eslint
+- Prettier
 
-- Rich Editor Enhancement
- - Stock Ticker Mentioning
- - Image
- - GIFs
-- User Management
- - Able to see current login user
- - Able to make request as login user
+## VScode Extension to download
 
+- ESLint
+- Prettier - Code formatter
+- DotENV
