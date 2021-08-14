@@ -12,13 +12,13 @@
 
 ## VScode Settings
 
-# Extensions
+### Extensions
 
 - ESLint
 - Prettier - Code formatter
 - DotENV
 
-# Settings
+### Settings
 
 - Ensure vscode apply workspace TypeScript Version
 - Ensure vscode apply workspace settings
